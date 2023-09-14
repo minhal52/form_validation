@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="" id="name" placeholder="Enter Name:" >
+        <p style="color: red; font-size:10px;" class="nerror"></p>
+        <input type="number" id="num" placeholder="Enter Number:" >
+        <p style="color: red; font-size:10px;" class="perror"></p>
+        <input type="date" id="date" ><br>
+        <select id="gender"> 
+            <option value="" selected disabled>Select Gender</option>
+            <option value="Male"> Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+
+        </select><br>
+        <input type="email" id="email" pattern="[A-Za-z0-9]+@gmail.com" title="Pattern: *@gmail.com" required>
+       
+        <input type="submit">
+
+    </form>
+    <hr>
+    <p>Name: <span class="fname"></span></p>
+    <p>Num: <span class="num"></span></p>
+    <p>Date: <span class="date"></span></p>
+    <p>Gender: <span class="gender"></span></p>
+    <p>Email: <span class="email"></span></p>
+</body>
+<script>
+    document.addEventListener('input', function () {
+        //delcare datas
+        let name = document.querySelector("#name").value;
+        let num = document.querySelector("#num").value;
+        let date = document.querySelector("#date").value;
+        let gender = document.querySelector("#gender").value;
+        let email = document.querySelector("#email").value;
+
+       //validating name
+        if (name.length < 3) {
+            document.querySelector(".nerror").textContent = "Enter more than 3 character";
+        }
+        else if (name.length > 7) {
+            document.querySelector(".nerror").textContent = "  should not be more than 7 characters";
+        }
+        else {
+            document.querySelector(".nerror").textContent = "";
+        }
+
+        //validating number
+        if (num.length !== 10) {
+            document.querySelector(".perror").textContent = "Enter more than 10 digits";
+        }
+        else {
+            document.querySelector(".perror").textContent = "";
+        }
+        
+
+        console.log(name.length);
+       
+       
+        //display data
+        document.querySelector(".fname").textContent = name;
+        document.querySelector(".num").textContent = num;
+        document.querySelector(".date").textContent = date;
+        document.querySelector(".gender").textContent = gender;
+        document.querySelector(".email").textContent = email;
+    })
+    //
+</script>
+
+</html>
